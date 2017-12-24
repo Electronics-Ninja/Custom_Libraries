@@ -9,6 +9,9 @@ class MongoDB(object):
         :param username: <str> MongoDB username
         :param password: <str> MongoDB user password
         :param database: <str> Database to authenticate against and subsequently use
+
+        Call via mDB = en_mongodb.MongoDB(auth=True, mongodb_creds=credsDict)
+                 myColl = mDB.collection(coll_name='myCollection')
     """
     def __init__(self, auth, mongodb_creds):
         server = mongodb_creds['server']
@@ -17,8 +20,8 @@ class MongoDB(object):
         password = mongodb_creds['password']
         database = mongodb_creds['database']
 
-        self.client = pymongo.MongoClient(server, port=port, username=username, password=password, auth_source=database)
-        self.db = client['{}'.format(database)]
+        self.client = pymongo.MongoClient(server, port=port, username=username, password=password, authSource=database)
+        self.db = self.client['{}'.format(database)]
 
     def collection(self, coll_name):
         """ Create or attach to a collection
