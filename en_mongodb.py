@@ -1,14 +1,26 @@
+""" Electronics Ninja custom MongoDB initiation script
+
+Call via:
+   mDB = en_mongodb.MongoDB(auth=True, mongodb_creds=credsDict)
+   myColl = mDB.collection(coll_name='myCollection')
+"""
+
 import pymongo
+
+__author__ = 'Paul Kincaid <paul@electronics-ninja.io>'
 
 class MongoDB(object):
     """ Electronics Ninja custom MongoDB initiation and worker function
-    :param auth: <boolean> (required) True = MongoDB auth enabled
-    :param mongodb_creds: <dict> (required if auth set)
-        :param server: <str> MongoDB server - defaults to localhost
-        :param port: <int> MongoDB server - defaults to 27017
-        :param username: <str> MongoDB username
-        :param password: <str> MongoDB user password
-        :param database: <str> Database to authenticate against and subsequently use
+
+    Parameters
+    ----------
+    auth          : boolean -- (required) True = MongoDB auth enabled
+    mongodb_creds : dict    -- (required if auth set)
+        server   : string  -- MongoDB server - defaults to localhost
+        port     : integer --  MongoDB server - defaults to 27017
+        username : string  --  MongoDB username
+        password : string  --  MongoDB user password
+        database : string  --  Database to authenticate against and subsequently use
 
         Call via mDB = en_mongodb.MongoDB(auth=True, mongodb_creds=credsDict)
                  myColl = mDB.collection(coll_name='myCollection')
@@ -25,9 +37,14 @@ class MongoDB(object):
 
     def collection(self, coll_name):
         """ Create or attach to a collection
-        :param coll_name: <str> (Required) Name of the collection
 
-        Returns the collection object => make sure you assign to a variable in your program
+        Parameters
+        ----------
+        coll_name : string -- (Required) Name of the collection
+
+        Returns
+        -------
+        The collection object => make sure you assign to a variable in your program
         """
         self.coll_name = self.db['{}'.format(coll_name)]
         return self.coll_name
