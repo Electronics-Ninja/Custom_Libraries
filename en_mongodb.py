@@ -2,7 +2,7 @@
 
 Call via:
    mDB = en_mongodb.MongoDB(auth=True, mongodb_creds=credsDict)
-   myColl = mDB.collection(coll_name='myCollection')
+   myColl = mDB.collection(coll_name='myCollection') 
 """
 
 import pymongo
