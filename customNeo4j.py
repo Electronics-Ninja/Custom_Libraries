@@ -1,7 +1,7 @@
 # Simple function to create two nodes and a relationship between them
 #      session.write_transaction(n4j_use, <Node1 Type>, <Node1 Value>, <RELATIONSHIP>, <Node2 Type>, <Node2 Value>)
 #
-# n4j = Neo4j()
+# n4j = Neo4j() 
 # with n4j.driver.session() as session:
 #   session.write_transaction(n4j.n4j_use, "Instance", "{name: 'test', myID: '123'}", 'SOMETHING', "test", "{name: 'test'}")
 
